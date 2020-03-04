@@ -3,4 +3,4 @@ const path = require("path"),
 	Captcha = require("../");
 
 let captcha = new Captcha();
-captcha.canvas.createPNGStream().pipe(fs.createWriteStream(path.join(__dirname, `${captcha.value}.png`)));
+captcha.PNGStream.pipe(fs.createWriteStream(path.join(__dirname, `${captcha.value}.png`)));

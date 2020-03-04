@@ -21,8 +21,8 @@
     "email": "quin@cheesits456.dev"
   },
   "funding": {
-    "type" : "individual",
-    "url" : "https://donate.haileybot.com"
+    "type": "individual",
+    "url": "https://donate.haileybot.com"
   },
   "homepage": "https://github.com/HaileyBot/captcha-generator#readme",
   "keywords": [
@@ -32,5 +32,8 @@
     "authentication",
     "discord",
     "slack"
-  ]
+  ],
+  "directories": {
+    "example": "examples"
+  }
 }
