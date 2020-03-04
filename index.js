@@ -1,8 +1,6 @@
 "use strict";
 
-const fs = require("fs"),
-  path = require("path"),
-  Canvas = require("canvas");
+const Canvas = require("canvas");
   
 const alternateCapitals = str => [...str].map((char, i) => char[`to${i % 2 ? "Upper" : "Lower"}Case`]()).join(""),
   randomText = () => alternateCapitals(Math.random().toString(36).replace(/[^a-z]+/gi, "").substring(0, 6));
@@ -16,6 +14,9 @@ class Captcha {
 
     // Set background color
     ctx.globalAlpha = 1;
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.fillRect(0, 0, 200, 200);
     
     // Draw background noise
     for (let i = 0; i < 10000; i++) {
@@ -43,7 +44,7 @@ class Captcha {
       ctx.arc(
         Math.round(Math.random() * 180) + 10, // X coordinate
         Math.round(Math.random() * 180) + 10, // Y coordinate
-        Math.round(Math.random() * 7),       // Radius
+        Math.round(Math.random() * 7),        // Radius
         0,                                    // Start angle
         Math.PI * 2                           // End angle
       );
@@ -86,7 +87,7 @@ class Captcha {
     // Set position for text
     ctx.textAlign="center";
     ctx.textBaseline="middle";
-    ctx.translate(100, 100);
+    ctx.translate(Math.round((Math.random() * 50) - 25) + 100, Math.round((Math.random() * 50) - 25) + 100);
     ctx.rotate(Math.random() - 0.5);
 
     // Set text value and print it to canvas
@@ -107,6 +108,4 @@ class Captcha {
   
 }
 
-let captcha = new Captcha();
-captcha.canvas.createPNGStream().pipe(fs.createWriteStream(path.join(__dirname, 'text.png')));
-console.log(captcha.value);
+module.exports = Captcha;
