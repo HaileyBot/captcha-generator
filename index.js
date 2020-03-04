@@ -51,21 +51,21 @@ class Captcha {
     }
 
     // Set style for lines
-    ctx.strokeStyle = "#000";
+    ctx.strokeStyle = "#333";
     ctx.lineWidth = 2;
 
-    // Draw 8 lines
+    // Draw 10 lines
     ctx.beginPath();
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 10; i++) {
 
       // Set X and Y coordinates for each end of the line
       let points = [
-        [25,       Math.round(Math.random() * 150) + 25],
-        [200 - 25, Math.round(Math.random() * 150) + 25]
+        [0,   Math.round(Math.random() * 200)],
+        [200, Math.round(Math.random() * 200)]
       ];
 
       // Draw first 4 lines left to right
-      if (i < 4) {
+      if (i < 5) {
         ctx.moveTo(points[0][0], points[0][1]);
         ctx.lineTo(points[1][0], points[1][1]);
       // Draw last 4 lines top to bottom
@@ -81,7 +81,7 @@ class Captcha {
 
     // Set style for text
     ctx.font = 'normal 40px serif';
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = '#000000cc';
     
     // Set position for text
     ctx.textAlign="center";
