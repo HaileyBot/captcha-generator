@@ -52,13 +52,15 @@ class Captcha {
     // Fill all the plotted line strokes
     ctx.stroke();
 
-    // Set style and position for text
+    // Set style for text
     ctx.font = 'normal 40px serif';
+    ctx.fillStyle = '#000';
+    
+    // Set position for text
     ctx.textAlign="center";
     ctx.textBaseline="middle";
-    ctx.fillStyle = '#000';
     ctx.translate(100, 100);
-    ctx.rotate((Math.random() - 0.5) * 2);
+    ctx.rotate((Math.random() - 0.5) * 1.5);
 
     // Set text value and print it to canvas
     this._value = randomText();
@@ -76,4 +78,6 @@ class Captcha {
   
 }
 
-(new Captcha()).canvas.createPNGStream().pipe(fs.createWriteStream(path.join(__dirname, 'text.png')));
+let captcha = new Captcha();
+captcha.canvas.createPNGStream().pipe(fs.createWriteStream(path.join(__dirname, 'text.png')));
+console.log(captcha.value);
