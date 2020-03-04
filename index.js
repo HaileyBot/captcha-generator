@@ -24,26 +24,17 @@ class Captcha {
     // Draw 8 lines
     for (let i = 0; i < 8; i++) {
 
-      // Initialize coordinate array
-      let points = [];
-      
-      // Set X and Y of first coordinate
-      points[0] = [
-        25,
-        Math.round(Math.random() * 150) + 25
+      // Set X and Y coordinates for each end of the line
+      let points = [
+        [25,       Math.round(Math.random() * 150) + 25],
+        [200 - 25, Math.round(Math.random() * 150) + 25]
       ];
 
-      // Set X and Y of second coordinate
-      points[1] = [
-        200 - 25,
-        Math.round(Math.random() * 150) + 25
-      ];
-
-      // Draw first 4 lines horizontal
+      // Draw first 4 lines left to right
       if (i < 4) {
         ctx.moveTo(points[0][0], points[0][1]);
         ctx.lineTo(points[1][0], points[1][1]);
-      // Draw last 4 lines vertical
+      // Draw last 4 lines top to bottom
       } else {
         ctx.moveTo(points[1][1], points[1][0]);
         ctx.lineTo(points[0][1], points[0][0]);
@@ -63,7 +54,8 @@ class Captcha {
     ctx.rotate((Math.random() - 0.5) * 1.5);
 
     // Set text value and print it to canvas
-    this._value = randomText();
+    this._value = "";
+    while (this._value.length !== 6) this._value = randomText();
     ctx.fillText(this._value, 0, 0);
 
   };
