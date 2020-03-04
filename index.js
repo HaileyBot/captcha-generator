@@ -17,11 +17,7 @@ class Captcha {
     // Set background color
     ctx.globalAlpha = 1;
     
-    // Set style for circles
-    ctx.fillStyle = "#000";
-    ctx.lineWidth = 0;
-    
-    // Draw 50 circles
+    // Draw background noise
     for (let i = 0; i < 10000; i++) {
       ctx.beginPath();
       let color = "#";
@@ -33,6 +29,23 @@ class Captcha {
         Math.random(),                   // Radius
         0,                               // Start angle
         Math.PI * 2                      // End angle
+      );
+      ctx.fill();
+    }
+    
+    // Set style for circles
+    ctx.fillStyle = "#555";
+    ctx.lineWidth = 0;
+    
+    // Draw 80 circles
+    for (let i = 0; i < 80; i++) {
+      ctx.beginPath();
+      ctx.arc(
+        Math.round(Math.random() * 180) + 10, // X coordinate
+        Math.round(Math.random() * 180) + 10, // Y coordinate
+        Math.round(Math.random() * 7),       // Radius
+        0,                                    // Start angle
+        Math.PI * 2                           // End angle
       );
       ctx.fill();
     }
