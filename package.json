@@ -1,0 +1,14 @@
+{
+  "name": "node-captcha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "text.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cheesits456",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "canvas": "^2.6.1"
+  }
+}
