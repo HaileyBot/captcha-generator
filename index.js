@@ -1,6 +1,7 @@
 "use strict";
 
 const Canvas = require("canvas");
+Canvas.registerFont("./assets/fonts/Swift.ttf", { family: "swift" });
 
 const alternateCapitals = str => [...str].map((char, i) => char[`to${i % 2 ? "Upper" : "Lower"}Case`]()).join(""),
   randomText = () => alternateCapitals(Math.random().toString(36).replace(/[^a-z]+/gi, "").substring(0, 6)),
@@ -99,7 +100,7 @@ class Captcha {
     ctx.stroke();
 
     // Set style for text
-    ctx.font = 'normal 40px serif';
+    ctx.font = 'normal 55px swift';
     ctx.fillStyle = '#222';
 
     // Set position for text
