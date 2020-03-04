@@ -17,11 +17,32 @@ class Captcha {
     // Set background color
     ctx.globalAlpha = 1;
     
-    // Set style for lines
-    ctx.strokeStyle = '#000';
-    ctx.lineWidth = 2;
+    // Set style for circles
+    ctx.fillStyle = "#000";
+    ctx.lineWidth = 0;
     
+    // Draw 50 circles
+    for (let i = 0; i < 10000; i++) {
+      ctx.beginPath();
+      let color = "#";
+      while (color.length < 7) color += Math.round(Math.random() * 16).toString(16);
+      ctx.fillStyle = color;
+      ctx.arc(
+        Math.round(Math.random() * 200), // X coordinate
+        Math.round(Math.random() * 200), // Y coordinate
+        Math.random(),                   // Radius
+        0,                               // Start angle
+        Math.PI * 2                      // End angle
+      );
+      ctx.fill();
+    }
+
+    // Set style for lines
+    ctx.strokeStyle = "#000";
+    ctx.lineWidth = 2;
+
     // Draw 8 lines
+    ctx.beginPath();
     for (let i = 0; i < 8; i++) {
 
       // Set X and Y coordinates for each end of the line
@@ -39,7 +60,9 @@ class Captcha {
         ctx.moveTo(points[1][1], points[1][0]);
         ctx.lineTo(points[0][1], points[0][0]);
       }
+
     };
+
     // Fill all the plotted line strokes
     ctx.stroke();
 
@@ -51,9 +74,10 @@ class Captcha {
     ctx.textAlign="center";
     ctx.textBaseline="middle";
     ctx.translate(100, 100);
-    ctx.rotate((Math.random() - 0.5) * 1.5);
+    ctx.rotate(Math.random() - 0.5);
 
     // Set text value and print it to canvas
+    ctx.beginPath();
     this._value = "";
     while (this._value.length !== 6) this._value = randomText();
     ctx.fillText(this._value, 0, 0);
