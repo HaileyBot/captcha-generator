@@ -1,8 +1,8 @@
 {
-  "name": "node-captcha",
+  "name": "@haileybot/captcha-generator",
   "version": "1.0.0",
-  "description": "",
-  "main": "text.js",
+  "description": "Generate captcha images for use with bots on chat platforms",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,5 +10,27 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "canvas": "^2.6.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaileyBot/captcha-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HaileyBot/captcha-generator/issues",
+    "email": "quin@cheesits456.dev"
+  },
+  "funding": {
+    "type" : "individual",
+    "url" : "https://donate.haileybot.com"
+  },
+  "homepage": "https://github.com/HaileyBot/captcha-generator#readme",
+  "keywords": [
+    "captcha",
+    "generator",
+    "bot",
+    "authentication",
+    "discord",
+    "slack"
+  ]
 }
