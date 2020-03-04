@@ -4,16 +4,22 @@ const Canvas = require("canvas");
 
 const alternateCapitals = str => [...str].map((char, i) => char[`to${i % 2 ? "Upper" : "Lower"}Case`]()).join(""),
   randomText = () => alternateCapitals(Math.random().toString(36).replace(/[^a-z]+/gi, "").substring(0, 6)),
-  contrastImage = (imgData, contrast) => { //input range [-100..100]
-    let d = imgData.data;
-    contrast = (contrast / 100) + 1; //convert to decimal & shift range: [0..2]
-    let intercept = 128 * (1 - contrast);
-    for (let i = 0; i < d.length; i += 4) { //r,g,b,a
-      d[i] = d[i] * contrast + intercept;
-      d[i + 1] = d[i + 1] * contrast + intercept;
-      d[i + 2] = d[i + 2] * contrast + intercept;
+  shuffleArray = (arr) => {
+    let i = arr.length,
+      temp, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== i) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * i);
+      i -= 1;
+      // And swap it with the current element.
+      temp = arr[i];
+      arr[i] = arr[randomIndex];
+      arr[randomIndex] = temp;
     }
-    return imgData;
+
+    return arr;
   }
 
 class Captcha {
@@ -28,7 +34,6 @@ class Captcha {
     ctx.fillStyle = "white";
     ctx.beginPath();
     ctx.fillRect(0, 0, 200, 200);
-    ctx.filter = 'blur(4px)';
 
     // Draw background noise
     for (let i = 0; i < 10000; i++) {
@@ -64,37 +69,38 @@ class Captcha {
     }
 
     // Set style for lines
-    ctx.strokeStyle = "#333";
+    ctx.strokeStyle = "#222";
     ctx.lineWidth = 2;
 
     // Draw 10 lines
     ctx.beginPath();
-    for (let i = 0; i < 10; i++) {
+    let coords = [];
+    for (let i = 0; i < 4; i++) {
+      if (!coords[i]) coords[i] = [];
+      for (let j = 0; j < 5; j++) coords[i][j] = Math.round(Math.random() * 40) + (j * 40);
+      if (!(i % 2)) coords[i] = shuffleArray(coords[i]);
+    }
 
-      // Set X and Y coordinates for each end of the line
-      let points = [
-        [0, Math.round(Math.random() * 200)],
-        [200, Math.round(Math.random() * 200)]
-      ];
-
-      // Draw first 4 lines left to right
-      if (i < 5) {
-        ctx.moveTo(points[0][0], points[0][1]);
-        ctx.lineTo(points[1][0], points[1][1]);
-        // Draw last 4 lines top to bottom
-      } else {
-        ctx.moveTo(points[1][1], points[1][0]);
-        ctx.lineTo(points[0][1], points[0][0]);
+    for (let i = 0; i < coords.length; i++) {
+      if (!(i % 2)) {
+        for (let j = 0; j < coords[i].length; j++) {
+          if (!i) {
+            ctx.moveTo(coords[i][j], 0);
+            ctx.lineTo(coords[i + 1][j], 200);
+          } else {
+            ctx.moveTo(0, coords[i][j]);
+            ctx.lineTo(200, coords[i + 1][j]);
+          }
+        }
       }
-
-    };
+    }
 
     // Fill all the plotted line strokes
     ctx.stroke();
 
     // Set style for text
     ctx.font = 'normal 40px serif';
-    ctx.fillStyle = '#333';
+    ctx.fillStyle = '#222';
 
     // Set position for text
     ctx.textAlign = "center";
@@ -107,9 +113,6 @@ class Captcha {
     this._value = "";
     while (this._value.length !== 6) this._value = randomText();
     ctx.fillText(this._value, 0, 0);
-
-    // Change contrast by random factor
-    ctx.putImageData(contrastImage(ctx.getImageData(0, 0, 200, 200), Math.round(Math.random() * 40) * (Math.round(Math.random()) ? 1 : -1)), 0, 0);
 
   };
 
