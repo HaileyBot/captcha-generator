@@ -1,5 +1,5 @@
 <a href="https://nodei.co/npm/@haileybot/captcha-generator/"><img src="https://nodei.co/npm/@haileybot/captcha-generator.png?downloads=true&downloadRank=true&stars=true" alt="npm installnfo" /></a>
-<br>
+<br><br>
 <a href="https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE"><img src="https://img.shields.io/github/license/HaileyBot/captcha-generator?color=d32" alt="License" /></a>
 <a href="https://www.npmjs.com/package/@haileybot/captcha-generator"><img src="https://img.shields.io/npm/v/@haileybot/captcha-generator.svg?maxAge=3600&color=d52" alt="NPM version" /></a>
 <a href="https://www.npmjs.com/package/@haileybot/captcha-generator"><img src="https://img.shields.io/npm/dt/@haileybot/captcha-generator.svg?maxAge=3600&color=db0" alt="NPM downloads" /></a>
