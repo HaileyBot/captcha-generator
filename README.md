@@ -1,4 +1,4 @@
-<div align="center">
+<div>
   <p>
     <a href="https://nodei.co/npm/@haileybot/captcha-generator/"><img src="https://nodei.co/npm/@haileybot/captcha-generator.png?downloads=true&downloadRank=true&stars=true" alt="npm installnfo" /></a>
   </p>
