@@ -1,10 +1,9 @@
 "use strict";
 
 const Canvas = require("canvas");
-Canvas.registerFont(require('path').resolve(__dirname, "./assets/fonts/Swift.ttf"), { family: "swift" });
+Canvas.registerFont(require('path').resolve(__dirname, "./assets/Swift.ttf"), { family: "swift" });
 
-const alternateCapitals = str => [...str].map((char, i) => char[`to${i % 2 ? "Upper" : "Lower"}Case`]()).join(""),
-  randomText = () => alternateCapitals(Math.random().toString(36).replace(/[^a-z]+/gi, "").substring(0, 6)),
+const randomText = () => Math.random().toString(36).replace(/[^a-z]+/gi, "").substring(0, 6).toUpperCase(),
   shuffleArray = (arr) => {
     let i = arr.length,
       temp, randomIndex;
