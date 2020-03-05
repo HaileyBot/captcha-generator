@@ -3,10 +3,12 @@
     <a href="https://nodei.co/npm/@haileybot/captcha-generator/"><img src="https://nodei.co/npm/@haileybot/captcha-generator.png?downloads=true&downloadRank=true&stars=true" alt="npm installnfo" /></a>
   </p>
   <p>
-    <a href="https://www.npmjs.com/package/@haileybot/captcha-generator"><img src="https://img.shields.io/npm/v/@haileybot/captcha-generator.svg?maxAge=3600" alt="NPM version" /></a>
-    <a href="https://www.npmjs.com/package/@haileybot/captcha-generator"><img src="https://img.shields.io/npm/dt/@haileybot/captcha-generator.svg?maxAge=3600" alt="NPM downloads" /></a>
-    <a href="https://david-dm.org/HaileyBot/captcha-generator"><img src="https://img.shields.io/david/HaileyBot/captcha-generator.svg?maxAge=3600" alt="Dependencies" /></a>
+    <a href="https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE"><img src="https://img.shields.io/github/license/HaileyBot/captcha-generator?color=red" alt="License" /></a>
+    <a href="https://www.npmjs.com/package/@haileybot/captcha-generator"><img src="https://img.shields.io/npm/v/@haileybot/captcha-generator.svg?maxAge=3600&color=orange" alt="NPM version" /></a>
+    <a href="https://www.npmjs.com/package/@haileybot/captcha-generator"><img src="https://img.shields.io/npm/dt/@haileybot/captcha-generator.svg?maxAge=3600&color=yellow" alt="NPM downloads" /></a>
+    <a href="https://david-dm.org/HaileyBot/captcha-generator"><img src="https://img.shields.io/david/HaileyBot/captcha-generator.svg?maxAge=3600&color=success" alt="Dependencies" /></a>
     <a href="https://donate.haileybot.com"><img src="https://img.shields.io/badge/donate-paypal-blue" alt="PayPal" /></a>
+    <a href="https://cheesits456.dev"><img src="https://img.shields.io/badge/-view%20portfolio-blueviolet" alt="Portfolio" /></a>
   </p>
 </div>
 
