@@ -1,3 +1,17 @@
+<div align="center">
+  <p>
+    <a href="https://nodei.co/npm/@haileybot/captcha-generator/"><img src="https://nodei.co/npm/@haileybot/captcha-generator.png?downloads=true&downloadRank=true&stars=true" alt="npm installnfo" /></a>
+  </p>
+  <p>
+    <a href="https://www.npmjs.com/package/@haileybot/captcha-generator"><img src="https://img.shields.io/npm/v/@haileybot/captcha-generator.svg?maxAge=3600" alt="NPM version" /></a>
+    <a href="https://www.npmjs.com/package/@haileybot/captcha-generator"><img src="https://img.shields.io/npm/dt/@haileybot/captcha-generator.svg?maxAge=3600" alt="NPM downloads" /></a>
+    <a href="https://david-dm.org/HaileyBot/captcha-generator"><img src="https://img.shields.io/david/HaileyBot/captcha-generator.svg?maxAge=3600" alt="Dependencies" /></a>
+    <a href="https://donate.haileybot.com"><img src="https://img.shields.io/badge/donate-paypal-blue" alt="PayPal" /></a>
+  </p>
+</div>
+
+
+
 # Captcha Generator
 
 Captcha Generator is a Node library for quickly and easily generating captcha images that can be used through an authorized bot to verify human users on a chat platform such as Slack or Discord.
@@ -28,8 +42,8 @@ let captcha = new Captcha();
 
 ```js
 const Captcha = require("@haileybot/captcha-generator"),
-  fs = require("fs"),
-  path = require("path");
+	fs = require("fs"),
+	path = require("path");
 
 let captcha = new Captcha();
 captcha.PNGStream.pipe(fs.createWriteStream(path.join(__dirname, `${captcha.value}.png`)));
@@ -41,21 +55,21 @@ This example assumes you already have the core framework of a Discord Bot set up
 
 ```js
 const Captcha = require("@haileybot/captcha-generator"),
-  Discord = require("discord.js");
+	Discord = require("discord.js");
 
 // Use this function for blocking certain commands or features from automated self-bots
 function verifyHuman(msg) {
-  let captcha = new Captcha();
-  msg.channel.send(
-    "**Enter the text shown in the image below:**",
-    new Discord.MessageAttachment(captcha.PNGStream, "captcha.png")
-  );
-  let collector = msg.channel.createMessageCollector(m => m.author.id === msg.author.id);
-  collector.on("collect", m => {
-    if (m.content === captcha.value) msg.channel.send("Verified Successfully!");
-    else msg.channel.send("Failed Verification!");
-    collector.stop();
-  })
+	let captcha = new Captcha();
+	msg.channel.send(
+		"**Enter the text shown in the image below:**",
+		new Discord.MessageAttachment(captcha.PNGStream, "captcha.png")
+	);
+	let collector = msg.channel.createMessageCollector(m => m.author.id === msg.author.id);
+	collector.on("collect", m => {
+		if (m.content === captcha.value) msg.channel.send("Verified Successfully!");
+		else msg.channel.send("Failed Verification!");
+		collector.stop();
+	})
 }
 
 ```
