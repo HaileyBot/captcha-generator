@@ -99,7 +99,7 @@ class Captcha {
     ctx.stroke();
 
     // Set style for text
-    ctx.font = 'normal 50px swift';
+    ctx.font = 'normal 40px swift';
     ctx.fillStyle = '#222';
 
     // Set position for text
