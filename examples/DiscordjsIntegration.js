@@ -8,7 +8,7 @@ function verifyHuman(msg) {
   );
   let collector = msg.channel.createMessageCollector(m => m.author.id === msg.author.id);
   collector.on("collect", m => {
-    if (m.content === captcha.value) msg.channel.send("Verified Successfully!");
+    if (m.content.toUpperCase() === captcha.value) msg.channel.send("Verified Successfully!");
     else msg.channel.send("Failed Verification!");
     collector.stop();
   })
