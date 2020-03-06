@@ -3,7 +3,7 @@
 const Canvas = require("canvas");
 Canvas.registerFont(require('path').resolve(__dirname, "./assets/Swift.ttf"), { family: "swift" });
 
-const randomText = () => Math.random().toString(36).replace(/[^a-z]+/gi, "").substring(0, 6).toUpperCase(),
+const randomText = () => Math.random().toString(36).replace(/[^a-z]|[rk]+/gi, "").substring(0, 6).toUpperCase(),
   shuffleArray = (arr) => {
     let i = arr.length,
       temp, randomIndex;
