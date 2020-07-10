@@ -99,12 +99,26 @@ class Captcha {
     ctx.stroke();
 
     // Set style for text
+    ctx.font = 'bold 10px sans';
+    ctx.fillStyle = 'blue';
+
+    // Set position for text
+    ctx.textAlign = "left";
+    ctx.textBaseline = "bottom";
+    ctx.translate(0, 200);
+
+    // Set text value and print it to canvas
+    ctx.beginPath();
+    ctx.fillText("http://c456.xyz/captcha-generator", 0, 0);
+
+    // Set style for text
     ctx.font = 'bold 45px swift';
     ctx.fillStyle = '#222';
 
     // Set position for text
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
+    ctx.translate(0, -200);
     ctx.translate(Math.round((Math.random() * 50) - 25) + 100, Math.round((Math.random() * 50) - 25) + 100);
     ctx.rotate(Math.random() - 0.5);
 
