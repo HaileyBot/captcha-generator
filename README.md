@@ -1,5 +1,3 @@
-[![Package Info](https://nodei.co/npm/@haileybot/captcha-generator.png?downloads=true)](https://nodei.co/npm/@haileybot/captcha-generator/)
-
 [![License](https://img.shields.io/github/license/HaileyBot/captcha-generator?color=d32)](https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE)
 [![NPM version](https://img.shields.io/npm/v/@haileybot/captcha-generator.svg?maxAge=3600&color=d52)](https://www.npmjs.com/package/@haileybot/captcha-generator)
 [![NPM downloads](https://img.shields.io/npm/dt/@haileybot/captcha-generator.svg?maxAge=3600&color=db0)](https://www.npmjs.com/package/@haileybot/captcha-generator)
