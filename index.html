@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Captcha-generator by HaileyBot</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/HaileyBot/captcha-generator">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/HaileyBot/captcha-generator/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/HaileyBot/captcha-generator/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Captcha-generator</h1>
+          <p>Generate captcha images for use with bots on chat platforms</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/HaileyBot">HaileyBot</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <p><a href="https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE"><img src="https://img.shields.io/github/license/HaileyBot/captcha-generator?color=d32" alt="License"></a>
+<a href="https://www.npmjs.com/package/@haileybot/captcha-generator"><img src="https://img.shields.io/npm/v/@haileybot/captcha-generator.svg?maxAge=3600&amp;color=d52" alt="NPM version"></a>
+<a href="https://www.npmjs.com/package/@haileybot/captcha-generator"><img src="https://img.shields.io/npm/dt/@haileybot/captcha-generator.svg?maxAge=3600&amp;color=db0" alt="NPM downloads"></a>
+<a href="https://david-dm.org/HaileyBot/captcha-generator"><img src="https://img.shields.io/david/HaileyBot/captcha-generator.svg?maxAge=3600&amp;color=2c1" alt="Dependencies"></a>
+<a href="https://donate.haileybot.com"><img src="https://img.shields.io/badge/donate-paypal-13e" alt="PayPal"></a>
+<a href="https://cheesits456.dev"><img src="https://img.shields.io/badge/-view%20portfolio-blueviolet" alt="Portfolio"></a></p>
+<h1>
+<a id="captcha-generator" class="anchor" href="#captcha-generator" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Captcha Generator</h1>
+<p>Captcha Generator is a Node library for quickly and easily generating captcha images that can be used through an authorized bot to verify human users on a chat platform such as Slack or Discord.</p>
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+<p>Use the package manager <a href="https://www.npmjs.com/">npm</a> to install Captcha Generator</p>
+<div class="highlight highlight-source-shell"><pre>npm i @haileybot/captcha-generator</pre></div>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+<h3>
+<a id="basic" class="anchor" href="#basic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Basic:</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// Import the module</span>
+<span class="pl-k">const</span> <span class="pl-v">Captcha</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"@haileybot/captcha-generator"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// Create a new Captcha object - this will contain "PNGStream" and "value"</span>
+<span class="pl-c">//   - "PNGStream" is a stream of the image in PNG format</span>
+<span class="pl-c">//   - "value" is the 6 character code the image contains</span>
+<span class="pl-k">let</span> <span class="pl-s1">captcha</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Captcha</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="save-to-file-example" class="anchor" href="#save-to-file-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Save to file example:</h3>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-v">Captcha</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"@haileybot/captcha-generator"</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+  <span class="pl-s1">fs</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"fs"</span><span class="pl-kos">)</span><span class="pl-kos">,</span>
+  <span class="pl-s1">path</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"path"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-k">let</span> <span class="pl-s1">captcha</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Captcha</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-s1">captcha</span><span class="pl-kos">.</span><span class="pl-c1">PNGStream</span><span class="pl-kos">.</span><span class="pl-en">pipe</span><span class="pl-kos">(</span><span class="pl-s1">fs</span><span class="pl-kos">.</span><span class="pl-en">createWriteStream</span><span class="pl-kos">(</span><span class="pl-s1">path</span><span class="pl-kos">.</span><span class="pl-en">join</span><span class="pl-kos">(</span><span class="pl-s1">__dirname</span><span class="pl-kos">,</span> <span class="pl-s">`<span class="pl-s1"><span class="pl-kos">${</span><span class="pl-s1">captcha</span><span class="pl-kos">.</span><span class="pl-c1">value</span><span class="pl-kos">}</span></span>.png`</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<h3>
+<a id="discord-example" class="anchor" href="#discord-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Discord Example:</h3>
+<p>This example assumes you already have the core framework of a Discord Bot set up</p>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-v">Captcha</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">"@haileybot/captcha-generator"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// Use this function for blocking certain commands or features from automated self-bots</span>
+<span class="pl-k">function</span> <span class="pl-en">verifyHuman</span><span class="pl-kos">(</span><span class="pl-s1">msg</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+  <span class="pl-k">let</span> <span class="pl-s1">captcha</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Captcha</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-s1">msg</span><span class="pl-kos">.</span><span class="pl-c1">channel</span><span class="pl-kos">.</span><span class="pl-en">send</span><span class="pl-kos">(</span>
+    <span class="pl-s">"**Enter the text shown in the image below:**"</span><span class="pl-kos">,</span>
+    <span class="pl-k">new</span> <span class="pl-v">Discord</span><span class="pl-kos">.</span><span class="pl-c1">MessageAttachment</span><span class="pl-kos">(</span><span class="pl-s1">captcha</span><span class="pl-kos">.</span><span class="pl-c1">PNGStream</span><span class="pl-kos">,</span> <span class="pl-s">"captcha.png"</span><span class="pl-kos">)</span>
+  <span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-k">let</span> <span class="pl-s1">collector</span> <span class="pl-c1">=</span> <span class="pl-s1">msg</span><span class="pl-kos">.</span><span class="pl-c1">channel</span><span class="pl-kos">.</span><span class="pl-en">createMessageCollector</span><span class="pl-kos">(</span><span class="pl-s1">m</span> <span class="pl-c1">=&gt;</span> <span class="pl-s1">m</span><span class="pl-kos">.</span><span class="pl-c1">author</span><span class="pl-kos">.</span><span class="pl-c1">id</span> <span class="pl-c1">===</span> <span class="pl-s1">msg</span><span class="pl-kos">.</span><span class="pl-c1">author</span><span class="pl-kos">.</span><span class="pl-c1">id</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-s1">collector</span><span class="pl-kos">.</span><span class="pl-en">on</span><span class="pl-kos">(</span><span class="pl-s">"collect"</span><span class="pl-kos">,</span> <span class="pl-s1">m</span> <span class="pl-c1">=&gt;</span> <span class="pl-kos">{</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">m</span><span class="pl-kos">.</span><span class="pl-c1">content</span><span class="pl-kos">.</span><span class="pl-en">toUpperCase</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c1">===</span> <span class="pl-s1">captcha</span><span class="pl-kos">.</span><span class="pl-c1">value</span><span class="pl-kos">)</span> <span class="pl-s1">msg</span><span class="pl-kos">.</span><span class="pl-c1">channel</span><span class="pl-kos">.</span><span class="pl-en">send</span><span class="pl-kos">(</span><span class="pl-s">"Verified Successfully!"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-k">else</span> <span class="pl-s1">msg</span><span class="pl-kos">.</span><span class="pl-c1">channel</span><span class="pl-kos">.</span><span class="pl-en">send</span><span class="pl-kos">(</span><span class="pl-s">"Failed Verification!"</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-s1">collector</span><span class="pl-kos">.</span><span class="pl-en">stop</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+  <span class="pl-kos">}</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span></pre></div>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p>This project is licensed under <a href="https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE">AGPL-3.0</a></p>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
