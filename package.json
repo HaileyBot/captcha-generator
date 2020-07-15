@@ -35,5 +35,6 @@
   ],
   "directories": {
     "example": "examples"
-  }
+  },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }
