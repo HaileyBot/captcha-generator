@@ -2,3 +2,4 @@ node_modules
 package-lock.json
 text.png
 examples/*.png
+.fossa.yml
