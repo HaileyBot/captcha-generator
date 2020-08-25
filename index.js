@@ -6,7 +6,7 @@ Canvas.registerFont(require("path").resolve(__dirname, "./assets/Swift.ttf"), { 
 const randomText = () =>
 		Math.random()
 			.toString(36)
-			.replace(/[^a-z]|[rk]+/gi, "")
+			.replace(/[^a-z]|[rkg]+/gi, "")
 			.substring(0, 6)
 			.toUpperCase(),
 	shuffleArray = arr => {
