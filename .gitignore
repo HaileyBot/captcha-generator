@@ -1,4 +1,4 @@
 node_modules
 examples/*.png
-.fossa.yml
-dist/*
+dist
+package-lock.json
