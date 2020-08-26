@@ -1,6 +1,6 @@
 {
 	"name": "@haileybot/captcha-generator",
-	"version": "1.1.8",
+	"version": "1.2.0@dev",
 	"description": "Generate captcha images for use with bots on chat platforms",
 	"main": "dist/index.js",
 	"scripts": {
