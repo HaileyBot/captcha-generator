@@ -1,7 +1,7 @@
 "use strict";
 
 const Canvas = require("canvas");
-Canvas.registerFont(require("path").resolve(__dirname, "./assets/Swift.ttf"), { family: "swift" });
+Canvas.registerFont(require("path").resolve(__dirname, "../assets/Swift.ttf"), { family: "swift" });
 
 const randomText = () =>
 		Math.random()
@@ -29,6 +29,9 @@ const randomText = () =>
 	};
 
 class Captcha {
+	_canvas;
+	_value;
+
 	constructor() {
 		// Initialize canvas
 		this._canvas = Canvas.createCanvas(400, 400);
@@ -51,7 +54,7 @@ class Captcha {
 				Math.round(Math.random() * 400), // Y coordinate
 				Math.random(), // Radius
 				0, // Start angle
-				Math.PI * 2 // End angle
+				Math.PI * 2, // End angle
 			);
 			ctx.fill();
 		}
@@ -68,7 +71,7 @@ class Captcha {
 				Math.round(Math.random() * 360) + 20, // Y coordinate
 				Math.round(Math.random() * 8), // Radius
 				0, // Start angle
-				Math.PI * 2 // End angle
+				Math.PI * 2, // End angle
 			);
 			ctx.fill();
 		}
