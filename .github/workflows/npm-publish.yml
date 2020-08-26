@@ -19,7 +19,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm i --only=dev
       - run: tsc
-      - run: npm publish --access public --tag beta
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.PUBLISH_TOKEN_NPM}}
 
@@ -35,6 +35,6 @@ jobs:
       - run: npm i --only=dev
       - run: tsc
       - run: echo registry=https://npm.pkg.github.com/HaileyBot >> .npmrc
-      - run: npm publish --tag beta
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.PUBLISH_TOKEN_GITHUB}}
