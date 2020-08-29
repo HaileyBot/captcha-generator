@@ -1,15 +1,17 @@
 "use strict";
 
 const Canvas = require("canvas");
-Canvas.registerFont(require("path").resolve(__dirname, "../assets/Swift.ttf"), { family: "swift" });
+Canvas.registerFont(require("path").resolve(__dirname, "../assets/Swift.ttf"), {
+	family: "swift",
+});
 
-const randomText = () =>
+const randomText = (): string =>
 		Math.random()
 			.toString(36)
 			.replace(/[^a-z]|[rkg]+/gi, "")
 			.substring(0, 6)
 			.toUpperCase(),
-	shuffleArray = arr => {
+	shuffleArray = (arr) => {
 		let i = arr.length,
 			temp,
 			randomIndex;
@@ -30,12 +32,24 @@ const randomText = () =>
 
 class Captcha {
 	_canvas;
-	_value;
+	_value: string;
 
 	constructor() {
 		// Initialize canvas
 		this._canvas = Canvas.createCanvas(400, 400);
-		let ctx = this._canvas.getContext("2d");
+
+		interface ctx {
+			globalAlpha: number;
+			font: string;
+			textAlign: string;
+			textBaseline: string;
+			fillStyle: string;
+			strokeStyle: string;
+			lineWidth: number;
+			[propName: string]: any;
+		}
+
+		let ctx: ctx = this._canvas.getContext("2d");
 
 		// Set background color
 		ctx.globalAlpha = 1;
@@ -47,14 +61,15 @@ class Captcha {
 		for (let i = 0; i < 10000; i++) {
 			ctx.beginPath();
 			let color = "#";
-			while (color.length < 7) color += Math.round(Math.random() * 16).toString(16);
+			while (color.length < 7)
+				color += Math.round(Math.random() * 16).toString(16);
 			ctx.fillStyle = color;
 			ctx.arc(
 				Math.round(Math.random() * 400), // X coordinate
 				Math.round(Math.random() * 400), // Y coordinate
 				Math.random(), // Radius
 				0, // Start angle
-				Math.PI * 2, // End angle
+				Math.PI * 2 // End angle
 			);
 			ctx.fill();
 		}
@@ -71,7 +86,7 @@ class Captcha {
 				Math.round(Math.random() * 360) + 20, // Y coordinate
 				Math.round(Math.random() * 8), // Radius
 				0, // Start angle
-				Math.PI * 2, // End angle
+				Math.PI * 2 // End angle
 			);
 			ctx.fill();
 		}
@@ -85,7 +100,8 @@ class Captcha {
 		let coords = [];
 		for (let i = 0; i < 4; i++) {
 			if (!coords[i]) coords[i] = [];
-			for (let j = 0; j < 5; j++) coords[i][j] = Math.round(Math.random() * 80) + j * 80;
+			for (let j = 0; j < 5; j++)
+				coords[i][j] = Math.round(Math.random() * 80) + j * 80;
 			if (!(i % 2)) coords[i] = shuffleArray(coords[i]);
 		}
 
@@ -127,7 +143,10 @@ class Captcha {
 		ctx.textAlign = "center";
 		ctx.textBaseline = "middle";
 		ctx.translate(0, -400);
-		ctx.translate(Math.round(Math.random() * 100 - 50) + 200, Math.round(Math.random() * 100 - 50) + 200);
+		ctx.translate(
+			Math.round(Math.random() * 100 - 50) + 200,
+			Math.round(Math.random() * 100 - 50) + 200
+		);
 		ctx.rotate(Math.random() - 0.5);
 
 		// Set text value and print it to canvas
