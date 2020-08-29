@@ -2,3 +2,4 @@ src
 .github
 node_modules
 tsconfig.json
+.prettierrc.json
