@@ -11,7 +11,7 @@ const randomText = (): string =>
 			.replace(/[^a-z]|[rkg]+/gi, "")
 			.substring(0, 6)
 			.toUpperCase(),
-	shuffleArray = (arr) => {
+	shuffleArray = arr => {
 		let i = arr.length,
 			temp,
 			randomIndex;
@@ -69,7 +69,7 @@ class Captcha {
 				Math.round(Math.random() * 400), // Y coordinate
 				Math.random(), // Radius
 				0, // Start angle
-				Math.PI * 2 // End angle
+				Math.PI * 2, // End angle
 			);
 			ctx.fill();
 		}
@@ -86,7 +86,7 @@ class Captcha {
 				Math.round(Math.random() * 360) + 20, // Y coordinate
 				Math.round(Math.random() * 8), // Radius
 				0, // Start angle
-				Math.PI * 2 // End angle
+				Math.PI * 2, // End angle
 			);
 			ctx.fill();
 		}
@@ -145,7 +145,7 @@ class Captcha {
 		ctx.translate(0, -400);
 		ctx.translate(
 			Math.round(Math.random() * 100 - 50) + 200,
-			Math.round(Math.random() * 100 - 50) + 200
+			Math.round(Math.random() * 100 - 50) + 200,
 		);
 		ctx.rotate(Math.random() - 0.5);
 
