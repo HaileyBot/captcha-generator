@@ -1,4 +1,4 @@
-title: @haileybot/captcha-generator
+title: "@haileybot/captcha-generator"
 description: Generate captcha images for use with bots on chat platforms
 google_analytics: 
 show_downloads: false
