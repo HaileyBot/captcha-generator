@@ -1,0 +1,8 @@
+title: Captcha-generator
+description: Generate captcha images for use with bots on chat platforms
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-slate
+
+gems:
+  - jekyll-mentions
