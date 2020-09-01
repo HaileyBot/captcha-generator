@@ -1,7 +1,7 @@
-title: Captcha-generator
+title: @haileybot/captcha-generator
 description: Generate captcha images for use with bots on chat platforms
 google_analytics: 
-show_downloads: true
+show_downloads: false
 theme: jekyll-theme-slate
 
 gems:
