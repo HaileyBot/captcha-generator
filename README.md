@@ -26,9 +26,12 @@ npm i @haileybot/captcha-generator
 // Import the module
 const Captcha = require("@haileybot/captcha-generator");
 
-// Create a new Captcha object - this will contain "PNGStream" and "value"
-//   - "PNGStream" is a stream of the image in PNG format
-//   - "value" is the 6 character code the image contains
+// Create a new Captcha object
+//  - Optional argument to specify image height (250 to 400px, default 250)
+//    - Image width is 400px
+//  - Returned object will contain "PNGStream" and "value"
+//    - "PNGStream" is a stream object for the image file  
+//    - "value" is the 6 character code the image contains
 let captcha = new Captcha();
 ```
 
@@ -39,7 +42,7 @@ const Captcha = require("@haileybot/captcha-generator"),
   fs = require("fs"),
   path = require("path");
 
-let captcha = new Captcha();
+let captcha = new Captcha(400);
 captcha.PNGStream.pipe(fs.createWriteStream(path.join(__dirname, `${captcha.value}.png`)));
 
 ```
