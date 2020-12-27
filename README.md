@@ -71,7 +71,7 @@ function verifyHuman(msg) {
 ```
 
 ## License
-This project is licensed under [AGPL-3.0](https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE)
+This project is licensed under [GPL-3.0](https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE)
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHaileyBot%2Fcaptcha-generator.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHaileyBot%2Fcaptcha-generator?ref=badge_large)
