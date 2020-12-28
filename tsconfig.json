@@ -1,8 +1,18 @@
 {
 	"compilerOptions": {
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"declaration": true,
+		"declarationMap": true,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"noImplicitAny": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
 		"outDir": "./dist",
-		"allowJs": true,
-		"target": "es6"
+		"resolveJsonModule": true,
+		"strict": true,
+		"target": "ES6"
 	},
 	"include": ["./src/**/*"]
 }

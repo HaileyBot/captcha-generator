@@ -1,6 +1,5 @@
-"use strict";
+import * as Canvas from "canvas";
 
-const Canvas = require("canvas");
 Canvas.registerFont(require("path").resolve(__dirname, "../assets/Swift.ttf"), {
 	family: "swift"
 });
@@ -11,10 +10,10 @@ const randomText = (): string =>
 			.replace(/[^a-z]|[rkg]+/gi, "")
 			.substring(0, 6)
 			.toUpperCase(),
-	shuffleArray = arr => {
-		let i = arr.length,
-			temp,
-			randomIndex;
+	shuffleArray = (arr: Array<any>): Array<any> => {
+		let i: number = arr.length,
+			temp: any,
+			randomIndex: number;
 
 		// While there remain elements to shuffle...
 		while (0 !== i) {
@@ -31,7 +30,7 @@ const randomText = (): string =>
 	};
 
 class Captcha {
-	_canvas;
+	_canvas: Canvas.Canvas;
 	_value: string;
 
 	constructor(h: number = 250) {
@@ -45,18 +44,7 @@ class Captcha {
 		// Initialize canvas
 		this._canvas = Canvas.createCanvas(400, h);
 
-		interface ctx {
-			globalAlpha: number;
-			font: string;
-			textAlign: string;
-			textBaseline: string;
-			fillStyle: string;
-			strokeStyle: string;
-			lineWidth: number;
-			[propName: string]: any;
-		}
-
-		let ctx: ctx = this._canvas.getContext("2d");
+		let ctx = this._canvas.getContext("2d");
 
 		// Set background color
 		ctx.globalAlpha = 1;
@@ -70,7 +58,7 @@ class Captcha {
 		ctx.lineWidth = 4;
 		// Draw 10 lines
 		ctx.beginPath();
-		let coords = [];
+		let coords: Array<Array<number>> = [];
 		for (let i = 0; i < 4; i++) {
 			if (!coords[i]) coords[i] = [];
 			for (let j = 0; j < 5; j++) coords[i][j] = Math.round(Math.random() * 80) + j * 80;
@@ -123,9 +111,12 @@ class Captcha {
 		ctx.fillStyle = "#000";
 		// Set position for text
 		ctx.textAlign = "center";
-		ctx.textBaseline = "center";
+		ctx.textBaseline = "top";
 		ctx.translate(0, h);
-		ctx.translate(Math.round(Math.random() * 100 - 50) + 200, -1 * Math.round(Math.random() * (h / 4) - (h / 8)) - (h / 2));
+		ctx.translate(
+			Math.round(Math.random() * 100 - 50) + 200,
+			-1 * Math.round(Math.random() * (h / 4) - h / 8) - h / 2
+		);
 		ctx.rotate(Math.random() - 0.5);
 		// Set text value and print it to canvas
 		ctx.beginPath();
@@ -159,6 +150,10 @@ class Captcha {
 	get PNGStream() {
 		return this._canvas.createPNGStream();
 	}
+
+	get JPEGStream() {
+		return this._canvas.createJPEGStream();
+	}
 }
 
-module.exports = Captcha;
+export = Captcha;
