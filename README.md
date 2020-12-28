@@ -2,6 +2,7 @@
 [![NPM version](https://img.shields.io/npm/v/@haileybot/captcha-generator.svg?maxAge=3600&color=d52)](https://www.npmjs.com/package/@haileybot/captcha-generator)
 [![NPM downloads](https://img.shields.io/npm/dt/@haileybot/captcha-generator.svg?maxAge=3600&color=db0)](https://www.npmjs.com/package/@haileybot/captcha-generator)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHaileyBot%2Fcaptcha-generator.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHaileyBot%2Fcaptcha-generator?ref=badge_shield)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a46eab666ba045deaf8d5025fd11eef5)](https://www.codacy.com/gh/HaileyBot/captcha-generator/dashboard)
 [![Dependencies](https://img.shields.io/david/HaileyBot/captcha-generator.svg?maxAge=3600&color=2c1)](https://david-dm.org/HaileyBot/captcha-generator)
 [![PayPal](https://img.shields.io/badge/donate-paypal-13e)](https://donate.haileybot.com)
 [![Portfolio](https://img.shields.io/badge/-view%20portfolio-blueviolet)](https://cheesits456.dev)
