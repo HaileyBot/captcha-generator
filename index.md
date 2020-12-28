@@ -30,21 +30,23 @@ const Captcha = require("@haileybot/captcha-generator");
 //  - Optional argument to specify image height (250 to 400px, default 250)
 //    - Image width is 400px
 //  - Returned object will contain "PNGStream" and "value"
-//    - "PNGStream" is a stream object for the image file  
+//    - "PNGStream" is a stream object for the image file in PNG format
+//    - "JPEGStream" is a stream object for the image file in JPEG format
 //    - "value" is the 6 character code the image contains
 let captcha = new Captcha();
+console.log(captcha.value);
 ```
 
 ### Save to file example:
 
 ```js
-const Captcha = require("@haileybot/captcha-generator"),
+const path = require("path"),
   fs = require("fs"),
-  path = require("path");
+  Captcha = require("@haileybot/captcha-generator");
 
-let captcha = new Captcha(400);
+let captcha = new Captcha();
 captcha.PNGStream.pipe(fs.createWriteStream(path.join(__dirname, `${captcha.value}.png`)));
-
+captcha.JPEGStream.pipe(fs.createWriteStream(path.join(__dirname, `${captcha.value}.jpeg`)));
 ```
 
 ### Discord Example:
@@ -58,7 +60,7 @@ function verifyHuman(msg) {
   let captcha = new Captcha();
   msg.channel.send(
     "**Enter the text shown in the image below:**",
-    new Discord.MessageAttachment(captcha.PNGStream, "captcha.png")
+    new Discord.MessageAttachment(captcha.JPEGStream, "captcha.jpeg")
   );
   let collector = msg.channel.createMessageCollector(m => m.author.id === msg.author.id);
   collector.on("collect", m => {
@@ -71,7 +73,7 @@ function verifyHuman(msg) {
 ```
 
 ## License
-This project is licensed under [AGPL-3.0](https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE)
+This project is licensed under [GPL-3.0](https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE)
 
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHaileyBot%2Fcaptcha-generator.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHaileyBot%2Fcaptcha-generator?ref=badge_large)
