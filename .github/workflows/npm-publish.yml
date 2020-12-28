@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm i --only=dev
+      - run: npm i
       - run: tsc
       - run: npm publish --access public
         env:
@@ -30,7 +30,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: '@HaileyBot'
-      - run: npm i --only=dev
+      - run: npm i
       - run: tsc
       - run: echo registry=https://npm.pkg.github.com/HaileyBot >> .npmrc
       - run: npm publish
