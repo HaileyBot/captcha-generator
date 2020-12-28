@@ -10,7 +10,7 @@ const randomText = (): string =>
 			.replace(/[^a-z]|[rkg]+/gi, "")
 			.substring(0, 6)
 			.toUpperCase(),
-	shuffleArray = (arr: Array<any>): Array<any> => {
+	shuffleArray = (arr: any[]): any[] => {
 		let i: number = arr.length,
 			temp: any,
 			randomIndex: number;
@@ -30,10 +30,10 @@ const randomText = (): string =>
 	};
 
 class Captcha {
-	_canvas: Canvas.Canvas;
-	_value: string;
+	private _canvas: Canvas.Canvas;
+	private _value: string;
 
-	constructor(h: number = 250) {
+	constructor(h = 250) {
 		// Make sure argument is a number
 		if (typeof h !== "number") h = 250;
 
@@ -58,7 +58,7 @@ class Captcha {
 		ctx.lineWidth = 4;
 		// Draw 10 lines
 		ctx.beginPath();
-		let coords: Array<Array<number>> = [];
+		let coords: number[][] = [];
 		for (let i = 0; i < 4; i++) {
 			if (!coords[i]) coords[i] = [];
 			for (let j = 0; j < 5; j++) coords[i][j] = Math.round(Math.random() * 80) + j * 80;
