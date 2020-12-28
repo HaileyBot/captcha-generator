@@ -33,7 +33,7 @@ class Captcha {
 	private _canvas: Canvas.Canvas;
 	private _value: string;
 
-	constructor(h = 250) {
+	constructor(h: number = 250) {
 		// Make sure argument is a number
 		if (typeof h !== "number") h = 250;
 
@@ -44,7 +44,7 @@ class Captcha {
 		// Initialize canvas
 		this._canvas = Canvas.createCanvas(400, h);
 
-		let ctx = this._canvas.getContext("2d");
+		const ctx = this._canvas.getContext("2d");
 
 		// Set background color
 		ctx.globalAlpha = 1;
@@ -58,7 +58,7 @@ class Captcha {
 		ctx.lineWidth = 4;
 		// Draw 10 lines
 		ctx.beginPath();
-		let coords: number[][] = [];
+		const coords: number[][] = [];
 		for (let i = 0; i < 4; i++) {
 			if (!coords[i]) coords[i] = [];
 			for (let j = 0; j < 5; j++) coords[i][j] = Math.round(Math.random() * 80) + j * 80;
@@ -143,15 +143,15 @@ class Captcha {
 		}
 	}
 
-	get value() {
+	get value(): string {
 		return this._value;
 	}
 
-	get PNGStream() {
+	get PNGStream(): Canvas.PNGStream {
 		return this._canvas.createPNGStream();
 	}
 
-	get JPEGStream() {
+	get JPEGStream(): Canvas.JPEGStream {
 		return this._canvas.createJPEGStream();
 	}
 }
