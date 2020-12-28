@@ -20,7 +20,7 @@ npm i @haileybot/captcha-generator
 
 ## Usage
 
-### Basic:
+### Basic
 
 ```js
 // Import the module
@@ -37,7 +37,7 @@ let captcha = new Captcha();
 console.log(captcha.value);
 ```
 
-### Save to file example:
+### Save to file example
 
 ```js
 const path = require("path"),
@@ -49,7 +49,7 @@ captcha.PNGStream.pipe(fs.createWriteStream(path.join(__dirname, `${captcha.valu
 captcha.JPEGStream.pipe(fs.createWriteStream(path.join(__dirname, `${captcha.value}.jpeg`)));
 ```
 
-### Discord Example:
+### Discord Example
 This example assumes you already have the core framework of a Discord Bot set up
 
 ```js
@@ -74,6 +74,5 @@ function verifyHuman(msg) {
 
 ## License
 This project is licensed under [GPL-3.0](https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE)
-
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHaileyBot%2Fcaptcha-generator.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FHaileyBot%2Fcaptcha-generator?ref=badge_large)
