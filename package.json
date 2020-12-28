@@ -1,6 +1,6 @@
 {
 	"name": "@haileybot/captcha-generator",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "An NPM package to generate captcha images that can be used in Discord bots or various other projects",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
