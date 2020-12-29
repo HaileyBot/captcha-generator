@@ -31,16 +31,12 @@ class Captcha {
 	private _canvas: Canvas.Canvas;
 	private _value: string;
 
-	constructor(h: number = 250) {
-		// Make sure argument is a number
-		if (typeof h !== "number") h = 250;
-
-		// Limit height to a range from 250 to 400
-		if (h > 400) h = 400;
-		if (h < 250) h = 250;
+	constructor(_h: number = 250) {
+		// Make sure argument is a number, limit to a range from 250 to 400
+		_h = typeof _h !== "number" || _h < 250 ? 250 : _h > 400 ? 400 : _h;
 
 		// Initialize canvas
-		this._canvas = Canvas.createCanvas(400, h);
+		this._canvas = Canvas.createCanvas(400, _h);
 
 		const ctx = this._canvas.getContext("2d");
 
@@ -48,7 +44,7 @@ class Captcha {
 		ctx.globalAlpha = 1;
 		ctx.fillStyle = "white";
 		ctx.beginPath();
-		ctx.fillRect(0, 0, 400, h);
+		ctx.fillRect(0, 0, 400, _h);
 		ctx.save();
 
 		// Set style for lines
@@ -110,10 +106,10 @@ class Captcha {
 		// Set position for text
 		ctx.textAlign = "center";
 		ctx.textBaseline = "top";
-		ctx.translate(0, h);
+		ctx.translate(0, _h);
 		ctx.translate(
 			Math.round(Math.random() * 100 - 50) + 200,
-			-1 * Math.round(Math.random() * (h / 4) - h / 8) - h / 2
+			-1 * Math.round(Math.random() * (_h / 4) - _h / 8) - _h / 2
 		);
 		ctx.rotate(Math.random() - 0.5);
 		// Set text value and print it to canvas
@@ -132,7 +128,7 @@ class Captcha {
 			ctx.fillStyle = color;
 			ctx.arc(
 				Math.round(Math.random() * 400), // X coordinate
-				Math.round(Math.random() * h), // Y coordinate
+				Math.round(Math.random() * _h), // Y coordinate
 				Math.random() * 2, // Radius
 				0, // Start angle
 				Math.PI * 2 // End angle
