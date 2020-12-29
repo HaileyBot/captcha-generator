@@ -1,0 +1,21 @@
+name: Coverage Reporter
+
+on: ["push"]
+
+jobs:
+  coverage-reporter:
+    runs-on: ubuntu-latest
+    name: coverage-reporter
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install and build libraries
+        run: |
+            npm i
+            npm run build
+      - name: Run coverage-reporter
+        run: |
+            export CODECOV_TOKEN=${{ secrets.CODECOV_TOKEN }}
+            bash <(curl -s https://codecov.io/bash) -f coverage/lcov.info
