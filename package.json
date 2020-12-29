@@ -11,9 +11,6 @@
 		"coverage": "nyc report -r lcovonly",
 		"build": "npm run clean && npm run compile && npm test && npm run coverage"
 	},
-	"mocha": {
-		"extends": "@istanbuljs/nyc-config-typescript"
-	},
 	"nyc": {
 		"all": true
 	},
