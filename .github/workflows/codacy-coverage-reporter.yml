@@ -11,11 +11,13 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: |
-          npm i
-          npm run build
+      - name: Install and build libraries
+        run: |
+            npm i
+            npm run build
+            cd coverage
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          coverage-reports: ${{ github.home }}/coverage/lcov.info
+          coverage-reports: lcov.info
