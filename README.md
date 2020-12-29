@@ -6,7 +6,7 @@
 	<br>
 	<a href="https://github.com/HaileyBot/captcha-generator/blob/master/LICENSE" title="License"><img alt="License" src="https://img.shields.io/github/license/HaileyBot/captcha-generator?logo=github&logoColor=black"/></a>
 	<a href="https://app.fossa.com/projects/git%2Bgithub.com%2FHaileyBot%2Fcaptcha-generator?ref=badge_shield" title="FOSSA Status"><img alt="FOSSA Status" src="https://app.fossa.com/api/projects/git%2Bgithub.com%2FHaileyBot%2Fcaptcha-generator.svg?type=shield"/></a>
-	<a href="https://www.codacy.com/gh/HaileyBot/captcha-generator/dashboard" title="Codacy Badge"><img alt="Codacy Badge" src="https://img.shields.io/codacy/grade/a46eab666ba045deaf8d5025fd11eef5?logo=codacy"/></a>
+	<a href="https://codecov.io/gh/HaileyBot/captcha-generator" title="Code Coverage"><img alt="Code Coverage" src="https://codecov.io/gh/HaileyBot/captcha-generator/branch/master/graph/badge.svg?token=OW7Q7Y1B2A"/></a>
 	<br>
 	<a href="https://github.com/sponsors/cheesits456" title="GitHub Sponsors"><img alt="GitHub Sponsors" src="https://img.shields.io/github/sponsors/cheesits456?color=EA4AAA&logo=github-sponsors"/></a>
 	<a href="https://donate.haileybot.com" title="PayPal"><img alt="PayPal" src="https://img.shields.io/badge/donate-paypal-13e?logo=paypal"/></a>
