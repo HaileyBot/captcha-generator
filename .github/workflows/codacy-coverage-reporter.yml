@@ -1,4 +1,4 @@
-name: codacy-coverage-reporter
+name: Codacy Coverage
 
 on: ["push"]
 
