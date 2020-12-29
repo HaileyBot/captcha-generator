@@ -1,3 +1,6 @@
-node_modules
-examples/*.png
+.nyc_output
+coverage
 dist
+examples/*.png
+examples/*.jpeg
+node_modules
