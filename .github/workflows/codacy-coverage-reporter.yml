@@ -15,7 +15,7 @@ jobs:
         run: |
             npm i
             npm run build
-            cd coverage
+            mv coverage/lcov.info .
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
