@@ -12,6 +12,7 @@
 		"outDir": "./dist",
 		"resolveJsonModule": true,
 		"strict": true,
+		"sourceMap": true,
 		"target": "ES6"
 	},
 	"include": ["./src/**/*", "test/index.spec.ts", "test/index.spec.ts"]
