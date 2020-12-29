@@ -14,6 +14,9 @@
 	"mocha": {
 		"extends": "@istanbuljs/nyc-config-typescript"
 	},
+	"nyc": {
+		"all": true
+	},
 	"author": "cheesits456 <quin@cheesits456.dev>",
 	"license": "GPL-3.0",
 	"dependencies": {
