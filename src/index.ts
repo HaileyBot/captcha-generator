@@ -10,11 +10,10 @@ const randomText = (): string =>
 			.replace(/[^a-z]|[rkg]+/gi, "")
 			.substring(0, 6)
 			.toUpperCase(),
-	shuffleArray = (arr: any[]): any[] => {
+	shuffleArray = (arr: number[]): number[] => {
 		let i: number = arr.length,
-			temp: any,
+			temp: number,
 			randomIndex: number;
-
 		// While there remain elements to shuffle...
 		while (0 !== i) {
 			// Pick a remaining element...
@@ -25,7 +24,6 @@ const randomText = (): string =>
 			arr[i] = arr[randomIndex];
 			arr[randomIndex] = temp;
 		}
-
 		return arr;
 	};
 
