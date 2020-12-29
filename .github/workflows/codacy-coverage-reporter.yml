@@ -12,8 +12,8 @@ jobs:
         with:
           node-version: 12
       - run: |
-        npm i
-        npm run build
+          npm i
+          npm run build
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@master
         with:
