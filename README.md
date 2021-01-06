@@ -36,6 +36,7 @@ const Captcha = require("@haileybot/captcha-generator");
 //  - Returned object will contain "PNGStream" and "value"
 //    - "PNGStream" is a stream object for the image file in PNG format
 //    - "JPEGStream" is a stream object for the image file in JPEG format
+//    - "dataURL" is a data URL containing the JPEG image data
 //    - "value" is the 6 character code the image contains
 let captcha = new Captcha();
 console.log(captcha.value);

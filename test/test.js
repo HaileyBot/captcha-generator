@@ -38,6 +38,12 @@ describe("src/index.ts", function () {
 					assert.strictEqual(captcha.JPEGStream instanceof Canvas.JPEGStream, true);
 				});
 			});
+
+			describe("dataURL", function () {
+				it("should be a string", function () {
+					assert.strictEqual(typeof captcha.dataURL, "string");
+				});
+			});
 		});
 	});
 });
