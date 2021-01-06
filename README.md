@@ -33,7 +33,7 @@ const Captcha = require("@haileybot/captcha-generator");
 // Create a new Captcha object
 //  - Optional argument to specify image height (250 to 400px, default 250)
 //    - Image width is 400px
-//  - Returned object will contain "PNGStream" and "value"
+//  - Returned object will contain 4 properties
 //    - "PNGStream" is a stream object for the image file in PNG format
 //    - "JPEGStream" is a stream object for the image file in JPEG format
 //    - "dataURL" is a data URL containing the JPEG image data
