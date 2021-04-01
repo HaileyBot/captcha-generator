@@ -90,17 +90,6 @@ class Captcha {
 		}
 
 		// Set style for text
-		ctx.font = "bold 20px sans";
-		ctx.fillStyle = "blue";
-		// Set position for text
-		ctx.textAlign = "left";
-		ctx.textBaseline = "top";
-		ctx.translate(0, 0);
-		// Set text value and print it to canvas
-		ctx.beginPath();
-		ctx.fillText("http://c456.xyz/captcha-generator", 0, 0);
-
-		// Set style for text
 		ctx.font = "bold 90px swift";
 		ctx.fillStyle = "#000";
 		// Set position for text
