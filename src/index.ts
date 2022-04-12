@@ -141,6 +141,10 @@ class Captcha {
 	get dataURL(): string {
 		return this._canvas.toDataURL("image/jpeg");
 	}
+
+	get buffer(): string {
+		return this._canvas.toBuffer();
+	}
 }
 
 export = Captcha;

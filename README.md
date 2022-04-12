@@ -64,14 +64,18 @@ const Captcha = require("@haileybot/captcha-generator");
 // Use this function for blocking certain commands or features from automated self-bots
 function verifyHuman(msg) {
 	let captcha = new Captcha();
-	msg.channel.send(
-		"**Enter the text shown in the image below:**",
-		new Discord.MessageAttachment(captcha.JPEGStream, "captcha.jpeg")
-	);
-	let collector = msg.channel.createMessageCollector(m => m.author.id === msg.author.id);
+	msg.channel.send({
+		content: "**Enter the text shown in the image below:**",
+		files: [{
+			attachment: captcha.buffer,
+			name: "captcha.jpg"
+		}]
+	});
+	let filter = m => m.author.id === msg.author.id;
+	let collector = msg.channel.createMessageCollector({ filter, time: 15000 });
 	collector.on("collect", m => {
-		if (m.content.toUpperCase() === captcha.value) msg.channel.send("Verified Successfully!");
-		else msg.channel.send("Failed Verification!");
+		if (m.content.toUpperCase() === captcha.value) msg.channel.send({ content: "Verified Successfully!" });
+		else msg.channel.send({ content: "Failed Verification!" });
 		collector.stop();
 	});
 }
