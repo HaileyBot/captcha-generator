@@ -142,7 +142,7 @@ class Captcha {
 		return this._canvas.toDataURL("image/jpeg");
 	}
 
-	get buffer(): string {
+	get buffer(): Buffer {
 		return this._canvas.toBuffer();
 	}
 }
